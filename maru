@@ -2,6 +2,8 @@
 // by Olivia Jack
 // https://ojack.github.io
 // modified by ytpx
+// https://hydra.ojack.xyz/?sketch_id=G96EZC01zU2jpnpF
+
 osc(5, 1 / 777, 2)
 	.rotate(0, 2 / 7)
 	.color(1, 1, 1)
