@@ -1,0 +1,36 @@
+//forked from jphacha 20230224
+//by ytpx
+//https://hydra.ojack.xyz/?code=JTJGJTJGZm9ya2VkJTIwZnJvbSUyMGpwaGFjaGElMjAyMDIzMDIyNCUwQSUyRiUyRmJ5JTIweXRweCUwQSUwQXIyJTNETWF0aC5yYW5kb20oNCUyQzYpJTNCJTBBcjElM0RNYXRoLnJhbmRvbSgwLjUlMkMwLjcpJTNCJTBBJTBBbm9pc2UoMSoyKjUlMkMlMjAxJTJGMTApJTBBJTA5LnRocmVzaCgwLjUlMkMlMjAxJTJGMTAlMkMlMjAxJTJGMjApJTBBJTIwJTIwJTIwJTIwLm91dChvMSklM0IlMEElMEFzcmMobzEpJTBBJTA5Lm11bHQoc3JjKG8xKSUwQSUwOSUwOS5zY3JvbGwoMCUyQyUyMDApJTBBJTA5JTA5LmludmVydCgpKSUwQSUwOS5hZGQoc3JjKG8xKSUwQSUwOSUwOS5tdWx0KHNyYyhvMSklMEElMDklMDklMDkuaW52ZXJ0KCkpKSUwQSUwOS5vdXQoKSUzQiUwQXNyYyhvMCklMEElMDkuY29sb3IoMSUyQyUyMDEqMTAlMkMlMjAxKSUwQSUwOS5zYXR1cmF0ZSgxJTJGMTApJTBBJTA5LmJsZW5kKG8zKSUwQSUwOS5vdXQobzIpJTNCJTBBJTBBcjEwJTIwJTNEJTIwTWF0aC5yYW5kb20oMSUyQzUpJTNCJTBBJTBBJTBBJTBBb3NjKDMlMkMlMjAxJTJDJTIwMSklMEElMDkubXVsdChzcmMobzApKSUwQSUwOS5hZGQoc3JjKG8zKSUwQSUwOSUwOS5icmlnaHRuZXNzKC0wLjAxOSklMEElMDklMDkubW9kdWxhdGVTY2FsZShvMSUyQyUyMHIxMCklMkMlMjAxKSUwQSUwOS5vdXQobzMpJTNCJTBBcmVuZGVyKG8yKSUzQiUwQSUwQSUwQQ%3D%3D
+
+r2=Math.random(4,6);
+r1=Math.random(0.5,0.7);
+
+noise(1*2*5, 1/10)
+	.thresh(0.5, 1/10, 1/20)
+    .out(o1);
+
+src(o1)
+	.mult(src(o1)
+		.scroll(0, 0)
+		.invert())
+	.add(src(o1)
+		.mult(src(o1)
+			.invert()))
+	.out();
+src(o0)
+	.color(1, 1*10, 1)
+	.saturate(1/10)
+	.blend(o3)
+	.out(o2);
+
+r10 = Math.random(1,5);
+
+
+
+osc(3, 1, 1)
+	.mult(src(o0))
+	.add(src(o3)
+		.brightness(-0.019)
+		.modulateScale(o1, r10), 1)
+	.out(o3);
+render(o2);
